@@ -7,12 +7,11 @@ const nextConfig = {
     async headers() {
       return [
         {
-          // Apply these headers to all API routes (using /api/**/* to match dynamic API routes)
-          source: "/api/:path*",
+          source: "/api/:path*",  // Applies to all routes under /api/
           headers: [
             {
               key: 'Access-Control-Allow-Origin',
-              value: '*',  // Allow all origins; change to a specific domain in production
+              value: '*',  // Allow all origins (change to a specific domain in production)
             },
             {
               key: 'Access-Control-Allow-Methods',
@@ -22,12 +21,15 @@ const nextConfig = {
               key: 'Access-Control-Allow-Headers',
               value: 'Content-Type, Authorization', // Allow these headers
             },
+            {
+              key: 'Access-Control-Allow-Credentials',
+              value: 'true',  // Allow credentials (cookies, authorization headers)
+            },
           ],
         },
       ];
     },
   };
   
-  // Export the configuration as the default export
   export default nextConfig;
   
