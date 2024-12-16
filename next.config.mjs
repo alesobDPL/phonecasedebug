@@ -5,30 +5,26 @@ const nextConfig = {
     },
   
     async headers() {
-      return [
-        {
-          source: "/api/:path*",  // Applies to all routes under /api/
-          headers: [
-            {
-              key: 'Access-Control-Allow-Origin',
-              value: '*',  // Allow all origins (change to a specific domain in production)
-            },
-            {
-              key: 'Access-Control-Allow-Methods',
-              value: 'GET, POST, OPTIONS', // Allow these methods
-            },
-            {
-              key: 'Access-Control-Allow-Headers',
-              value: 'Content-Type, Authorization', // Allow these headers
-            },
-            {
-              key: 'Access-Control-Allow-Credentials',
-              value: 'true',  // Allow credentials (cookies, authorization headers)
-            },
-          ],
-        },
-      ];
-    },
+        return [
+          {
+            // matching all API routes
+            source: '/api/:path*',
+            headers: [
+              { key: 'Access-Control-Allow-Credentials', value: 'true' },
+              { key: 'Access-Control-Allow-Origin', value: '*' },
+              {
+                key: 'Access-Control-Allow-Methods',
+                value: 'GET,DELETE,PATCH,POST,PUT',
+              },
+              {
+                key: 'Access-Control-Allow-Headers',
+                value:
+                  'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+              },
+            ],
+          },
+        ];
+      },
   };
   
   export default nextConfig;
