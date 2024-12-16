@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall" : "prisma generate",
-    "Set-Cookie": "__Secure-1PSIDCC=value; SameSite=None; Secure; HttpOnly; Path=/; Max-Age=3600"
+    "postinstall" : "prisma generate"
 
   },
   "dependencies": {
