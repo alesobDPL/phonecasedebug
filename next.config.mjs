@@ -8,7 +8,7 @@ const nextConfig = {
       return [
         {
           // Apply these headers to all API routes (using /api/**/* to match dynamic API routes)
-          source: '/api/[kindeAuth]',  // This applies to all API routes
+          "source": "/api/(.*)",  // This applies to all API routes
           headers: [
             {
               key: 'Access-Control-Allow-Origin',
